@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fcg-notifications-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fcg-notifications-api
+  template:
+    metadata:
+      labels:
+        app: fcg-notifications-api
+    spec:
+      containers:
+      - name: fcg-notifications-api
+        image: fcg-notifications-api:latest
+        ports:
+        - containerPort: 8080
